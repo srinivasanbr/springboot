@@ -5,7 +5,7 @@ COPY . .
 RUN mvn clean install
 
 # Use AdoptOpenJDK for base image.
-FROM openjdk:18-jre-slim
+FROM openjdk:18-jdk-slim
 
 # Copy the jar to the production image from the builder stage.
 COPY --from=builder /app/target/*.jar /app.jar
