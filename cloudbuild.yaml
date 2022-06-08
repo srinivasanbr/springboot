@@ -1,0 +1,14 @@
+steps:
+  # Docker Build
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 
+           'asia.gcr.io/${PROJECT_ID}/spring/${_APP}', 
+           '.']
+
+  # Docker Push
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 
+           'asia.gcr.io/${PROJECT_ID}/spring/${_APP}']
+
+substitutions:
+  _APP: "demo"
